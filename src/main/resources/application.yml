@@ -1,0 +1,25 @@
+spring:
+  neo4j:
+    uri: neo4j://localhost:7687
+    authentication:
+      username: neo4j
+      password: 123456
+  data:
+    neo4j:
+      database: neo4j
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          neo4j: DEBUG
+neo4j:
+  path:
+    neo4j-path: D:/neo4j-community-4.4.0
+    neo4j-import-path:  ${neo4j.path}/import
+
+deep:
+  file:
+    url:
+      item-url: https://deepctest.hdec.com/deep/site/Knowledge/
+      package-url: http://192.168.6.128/deep/sfm/structuralData/getDocPackageRelation

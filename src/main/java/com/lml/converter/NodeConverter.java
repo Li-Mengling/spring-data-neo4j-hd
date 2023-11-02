@@ -1,12 +1,10 @@
 package com.lml.converter;
 
-import com.lml.domain.BodyEntity;
-import com.lml.domain.InstanceEntity;
-import com.lml.domain.LabelCollectionEntity;
-import com.lml.domain.LabelEntity;
+import com.lml.domain.*;
 import com.lml.dto.LabelCollectionDTO;
 import com.lml.dto.LabelDTO;
 import com.lml.dto.SiteNode;
+import com.lml.dto.VirtualTreeDTO;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -36,12 +34,18 @@ public interface NodeConverter {
     @Mapping(target = "labelCollectionList", ignore = true)
     BodyEntity bodyEntityMapper(SiteNode siteNode);
 
+
+    List<BodyEntity> bodyEntityListMapper(List<SiteNode> siteNodeList);
+
+
     /**
      * 将SiteNode映射为InstanceEntity
      */
     @Mapping(target = "virtualTreeList", ignore = true)
     @Mapping(target = "labelCollectionList", ignore = true)
     InstanceEntity instanceEntityMapper(SiteNode siteNode);
+
+    List<InstanceEntity> instanceEntityListMapper(List<SiteNode> siteNodeList);
 
     /**
      *映射LabelCollectionEntity
@@ -62,4 +66,14 @@ public interface NodeConverter {
 
     @Mapping(source = "children", target = "label")
     List<LabelEntity> labelEntityListMapper(List<LabelDTO> labelDTOList);
+
+    /**
+     * 映射virtualTree
+     */
+
+    VirtualTreeEntity virtualTreeEntityMapper(VirtualTreeDTO virtualTreeDTO);
+
+
+    List<VirtualTreeEntity> virtualTreeEntityListMapper(List<VirtualTreeDTO> virtualTreeDTOList);
+
 }

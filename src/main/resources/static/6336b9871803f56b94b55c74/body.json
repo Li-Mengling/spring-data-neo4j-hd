@@ -1,0 +1,284 @@
+{
+    "success": true,
+    "message": "成功",
+    "code": 200,
+    "result": {
+        "siteNodeList": [
+            {
+                "id": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22b",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22b",
+                "nodeName": "项目列表（第二批）",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 0,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22c",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22c",
+                "nodeName": "项目列表（第三批）",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 0,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22d",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22d",
+                "nodeName": "项目列表（补充资料）",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 0,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "nodeName": "文件本体",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 2,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64f96a456d0d580c667eb980",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64f96a456d0d580c667eb980",
+                "nodeName": "文件类型",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 1,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64fabebf6d0d580c667ec26c",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64fabebf6d0d580c667ec26c",
+                "nodeName": "项目列表",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 0,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ],
+                "fileType": null,
+                "virtualRootList": []
+            },
+            {
+                "id": "6336b9871803f56b94b55c74@64fee25b6d0d580c667ecb97",
+                "siteId": "6336b9871803f56b94b55c74",
+                "siteNodeId": "6336b9871803f56b94b55c74@64fee25b6d0d580c667ecb97",
+                "nodeName": "泛文件本体",
+                "bodySiteNodeId": null,
+                "attribute": "BODY",
+                "type": "自建",
+                "lastSiteNodeId": null,
+                "snType": 3,
+                "isCreatedSite": false,
+                "labelCollections": null,
+                "instanceType": null,
+                "virtualTreeList": null,
+                "structureList": null,
+                "fileType": null,
+                "virtualRootList": []
+            }
+        ],
+        "snRelationList": [
+            {
+                "id": "64f7eeac6d0d580c667eb0c5",
+                "name": "项目列表（第二批）",
+                "relationType": "20",
+                "labelList": null,
+                "assSimpleSN": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22b",
+                "assSimpleSNName": "项目列表（第二批）",
+                "assStaticSNList": null,
+                "assStaticSNNameList": null,
+                "assStaticSNRList": null,
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteNodeName": "文件本体",
+                "disableSNList": null,
+                "type": "自建",
+                "siteId": "6336b9871803f56b94b55c74",
+                "quoteRelationId": null,
+                "createTime": "2023-09-06 11:14:52",
+                "updateTime": "2023-09-06 11:14:52",
+                "treeId": null,
+                "treeName": null,
+                "isConnectedStructured": null,
+                "isDimension": false,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ]
+            },
+            {
+                "id": "64f7eeac6d0d580c667eb0c6",
+                "name": "项目列表（第三批）",
+                "relationType": "20",
+                "labelList": null,
+                "assSimpleSN": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22c",
+                "assSimpleSNName": "项目列表（第三批）",
+                "assStaticSNList": null,
+                "assStaticSNNameList": null,
+                "assStaticSNRList": null,
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteNodeName": "文件本体",
+                "disableSNList": null,
+                "type": "自建",
+                "siteId": "6336b9871803f56b94b55c74",
+                "quoteRelationId": null,
+                "createTime": "2023-09-06 11:14:52",
+                "updateTime": "2023-09-06 11:14:52",
+                "treeId": null,
+                "treeName": null,
+                "isConnectedStructured": null,
+                "isDimension": false,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ]
+            },
+            {
+                "id": "64f7eeac6d0d580c667eb0c7",
+                "name": "项目列表（补充资料）",
+                "relationType": "20",
+                "labelList": null,
+                "assSimpleSN": "6336b9871803f56b94b55c74@64f6f7e02485d36c1666e22d",
+                "assSimpleSNName": "项目列表（补充资料）",
+                "assStaticSNList": null,
+                "assStaticSNNameList": null,
+                "assStaticSNRList": null,
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteNodeName": "文件本体",
+                "disableSNList": null,
+                "type": "自建",
+                "siteId": "6336b9871803f56b94b55c74",
+                "quoteRelationId": null,
+                "createTime": "2023-09-06 11:14:52",
+                "updateTime": "2023-09-06 11:14:52",
+                "treeId": null,
+                "treeName": null,
+                "isConnectedStructured": null,
+                "isDimension": false,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ]
+            },
+            {
+                "id": "64f98ed96d0d580c667ebe4b",
+                "name": "文件类型",
+                "relationType": "21",
+                "labelList": null,
+                "assSimpleSN": null,
+                "assSimpleSNName": null,
+                "assStaticSNList": [
+                    "6336b9871803f56b94b55c74@64f96a456d0d580c667eb980"
+                ],
+                "assStaticSNNameList": [
+                    "文件类型"
+                ],
+                "assStaticSNRList": null,
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteNodeName": "文件本体",
+                "disableSNList": null,
+                "type": "自建",
+                "siteId": "6336b9871803f56b94b55c74",
+                "quoteRelationId": null,
+                "createTime": "2023-09-07 16:50:33",
+                "updateTime": "2023-09-07 16:50:33",
+                "treeId": null,
+                "treeName": null,
+                "isConnectedStructured": null,
+                "isDimension": false,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ]
+            },
+            {
+                "id": "64faf04a6d0d580c667ec4ca",
+                "name": "项目列表",
+                "relationType": "20",
+                "labelList": null,
+                "assSimpleSN": "6336b9871803f56b94b55c74@64fabebf6d0d580c667ec26c",
+                "assSimpleSNName": "项目列表",
+                "assStaticSNList": null,
+                "assStaticSNNameList": null,
+                "assStaticSNRList": null,
+                "siteNodeId": "6336b9871803f56b94b55c74@64f7dadf2485d36c1666e74b",
+                "siteNodeName": "文件本体",
+                "disableSNList": null,
+                "type": "自建",
+                "siteId": "6336b9871803f56b94b55c74",
+                "quoteRelationId": null,
+                "createTime": "2023-09-08 17:58:34",
+                "updateTime": "2023-09-08 17:58:34",
+                "treeId": null,
+                "treeName": null,
+                "isConnectedStructured": null,
+                "isDimension": false,
+                "structureList": [
+                    "64faf0aef58b2142d7474f7d"
+                ]
+            }
+        ]
+    },
+    "timestamp": 1696731744792
+}

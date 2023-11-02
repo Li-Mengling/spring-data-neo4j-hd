@@ -52,11 +52,8 @@ public class BodyEntity {
     private List<String> structureList;
     //关系
 
-    @Relationship(type = "is_instance",direction = Relationship.Direction.OUTGOING)
-    private Set<InstanceEntity> instances = new HashSet<>();
-
     @Relationship(type = "belong_to",direction = Relationship.Direction.INCOMING)
-    private Set<BodyEntity> bodyEntities = new HashSet<>();
+    private Set<BodyEntity> belongTo = new HashSet<>();
 
 
     @Override
@@ -67,4 +64,16 @@ public class BodyEntity {
         return Objects.equals(nodeId, that.nodeId);
     }
 
+    /**
+     * 根据id查找对应的BodyEntity对象
+     * @param nodeId
+     * @return
+     */
+    public BodyEntity getBodyEntity(String nodeId){
+        return this.nodeId.equals(nodeId) ? this: null;
+    }
+
+    public void addBelongTo(BodyEntity bodyEntity) {
+        belongTo.add(bodyEntity);
+    }
 }

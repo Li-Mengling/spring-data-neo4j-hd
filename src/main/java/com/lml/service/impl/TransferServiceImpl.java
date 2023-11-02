@@ -40,9 +40,7 @@ public class TransferServiceImpl implements TransferService {
      */
     public NodeAndRelationList getData(String type, SiteId siteId) {
         String id = siteId.getSiteId();
-        //todo
         JsonResult jsonData = accessDataUtils.getDataOffline(type, id);
-
         return null;
     }
 

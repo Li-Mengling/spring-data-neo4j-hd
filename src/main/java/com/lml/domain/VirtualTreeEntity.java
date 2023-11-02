@@ -20,5 +20,5 @@ public class VirtualTreeEntity {
     private String nodeName;
 
     @Property("siteID")
-    private String siteID;
+    private String siteId;
 }

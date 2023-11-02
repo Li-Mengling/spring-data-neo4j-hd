@@ -2,8 +2,6 @@ package com.lml.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Property;
 
 import java.util.List;
 
@@ -42,7 +40,8 @@ public class SiteNode {
 
     private String instanceType;
 
-    private List<VirtualTree> virtualTreeList;
+    @JSONField(name = "virtualTreeList")
+    private List<VirtualTreeDTO> virtualTreeDTOList;
 
     private List<String> structureList;
 

@@ -7,12 +7,14 @@ spring:
   data:
     neo4j:
       database: neo4j
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          neo4j: DEBUG
+
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        data:
+#          neo4j: DEBUG
+
 neo4j:
   path:
     neo4j-path: D:/neo4j-community-4.4.0

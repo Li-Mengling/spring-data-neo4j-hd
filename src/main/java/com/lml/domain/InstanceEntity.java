@@ -9,8 +9,10 @@ import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Property;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +42,8 @@ public class InstanceEntity {
     @Property("fileType")
     private String fileType;
 
+    private String bodySiteNodeId;
+
     @Property("labelCollectionList")
     private List<String> labelCollectionList;
 
@@ -51,7 +55,11 @@ public class InstanceEntity {
 
     //实体节点与实体节点之间的关系
     @Relationship(type = "belong_to", direction = Relationship.Direction.INCOMING)
-    private List<InstanceEntity> instanceEntities;
+    private Set<InstanceEntity> belongTo = new HashSet<>();
+
+    //实体节点与本体节点之间的关系
+    @Relationship(type = "is_instance",direction = Relationship.Direction.OUTGOING)
+    private BodyEntity isInstance;
 
     @Override
     public boolean equals(Object o) {
@@ -60,4 +68,18 @@ public class InstanceEntity {
         InstanceEntity that = (InstanceEntity) o;
         return Objects.equals(nodeId, that.nodeId);
     }
+
+    /**
+     * 根据id寻找InstanceEntity对象
+     * @param nodeId
+     * @return
+     */
+    public InstanceEntity getInstanceEntity(String nodeId){
+        return this.nodeId.equals(nodeId) ? this: null;
+    }
+
+    public void addBelongTo(InstanceEntity InstanceEntity) {
+        belongTo.add(InstanceEntity);
+    }
+
 }

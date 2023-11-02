@@ -40,8 +40,8 @@ public class InstanceEntity {
     @Property("fileType")
     private String fileType;
 
-    @Property("labelCollections")
-    private List<String> labelCollections;
+    @Property("labelCollectionList")
+    private List<String> labelCollectionList;
 
     @Property("virtualTreeList")
     private List<String> virtualTreeList;

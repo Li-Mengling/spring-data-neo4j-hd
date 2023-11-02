@@ -43,34 +43,6 @@ public class TransferServiceImpl implements TransferService {
         //todo
         JsonResult jsonData = accessDataUtils.getDataOffline(type, id);
 
-        //获取出json中的node信息
-        //JSONArray nodes = jsonData.
-        //        getObject("result", JSONObject.class).
-        //        getObject("siteNodeList", JSONArray.class);
-        ////获取出json中的relation信息
-        //JSONArray relations = jsonData.
-        //        getObject("result", JSONObject.class).
-        //        getObject("siteNodeList", JSONArray.class);
-        ////结果结合,保存节点以及边的信息
-        //NodeAndRelationList nodeAndRelationList = new NodeAndRelationList();
-        ////节点对象集合
-        //List<Object> nodeEntityList = new ArrayList<>();
-        ////body与instance关系集合
-        //List<Object> bodyRelToInsDTOList = new ArrayList<>();
-        //for (Object node : nodes) {
-        //    Object nodeObject;
-        //    if (type.equals("getBodyNodeAndRelation")) {
-        //        nodeObject = buildEntity((JSONObject) node, BodyEntity.class);
-        //    } else {
-        //        nodeObject = buildEntity((JSONObject) node, InstanceEntity.class);
-        //        Object relationObject = buildRelation((JSONObject) node);
-        //        bodyRelToInsDTOList.add(relationObject);
-        //    }
-        //    nodeEntityList.add(nodeObject);
-        //}
-        //nodeAndRelationList.setNodeList(nodeEntityList);
-        //nodeAndRelationList.setRelationList(bodyRelToInsDTOList);
-        //return nodeAndRelationList;
         return null;
     }
 
@@ -153,7 +125,7 @@ public class TransferServiceImpl implements TransferService {
 
     /**
      * @description
-     * 用于将JSONArray类型的虚拟树json数据和表结构json数据转换成对应的List
+     * 用于将JSONArray类型的虚拟树json数据和表结构json数据转换成对应的IdList
      * @Param jsonArray:
      * @return java.util.List<java.lang.String>
      * @author: Leemonlin

@@ -2,11 +2,18 @@ package com.lml.converter;
 
 import com.lml.domain.BodyEntity;
 import com.lml.domain.InstanceEntity;
+import com.lml.domain.LabelCollectionEntity;
+import com.lml.domain.LabelEntity;
+import com.lml.dto.LabelCollectionDTO;
+import com.lml.dto.LabelDTO;
 import com.lml.dto.SiteNode;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,17 +29,37 @@ public interface NodeConverter {
 
     /**
      * 将SiteNode映射为BodyEntity
-     * @param siteNode
      * @return
      */
+
     @Mapping(target = "virtualTreeList", ignore = true)
+    @Mapping(target = "labelCollectionList", ignore = true)
     BodyEntity bodyEntityMapper(SiteNode siteNode);
 
     /**
      * 将SiteNode映射为InstanceEntity
-     * @param siteNode
-     * @return
      */
     @Mapping(target = "virtualTreeList", ignore = true)
+    @Mapping(target = "labelCollectionList", ignore = true)
     InstanceEntity instanceEntityMapper(SiteNode siteNode);
+
+    /**
+     *映射LabelCollectionEntity
+     */
+    @Mapping(source = "name", target = "nodeName")
+    LabelCollectionEntity labelCollectionEntityMapper(LabelCollectionDTO labelCollectionDTO);
+
+    @Mapping(source = "children",target = "label")
+    List<LabelCollectionEntity> labelCollectionEntityListMapper(List<LabelCollectionDTO> labelCollectionDTOList);
+
+    /**
+     * 映射LabelEntity
+
+     */
+    @Mapping(target = "options", ignore = true)
+    @Mapping(source = "name", target = "nodeName")
+    LabelEntity labelEntityMapper(LabelDTO labelDTO);
+
+    @Mapping(source = "children", target = "label")
+    List<LabelEntity> labelEntityListMapper(List<LabelDTO> labelDTOList);
 }

@@ -16,16 +16,22 @@ import java.util.List;
 public class LabelCollectionEntity {
     @Id
     private String nodeId;
+
     @Property("classificationIds")
     private List<String> classificationIds;
+
     @Property("labelIds")
     private List<String> labelIds;
+
     @Property("nodeName")
     private String nodeName;
+
     @Property("organizationId")
     private String organizationId;
-    @Property("siteID")
-    private String siteID;
+
+    @Property("siteId")
+    private String siteId;
+
     @Property("type")
     private String type;
 }

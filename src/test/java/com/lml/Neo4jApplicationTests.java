@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
 import com.lml.config.DataUrlProperties;
 import com.lml.dto.JsonResult;
+import com.lml.dto.LabelCollectionDTO;
 import com.lml.dto.SiteNode;
+import com.lml.pojo.SiteId;
 import com.lml.service.ToCsvService;
 import com.lml.service.TransferService;
 import com.lml.utils.AccessDataUtils;
@@ -22,7 +24,19 @@ class Neo4jApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	@Autowired
+	private AccessDataUtils accessDataUtils;
 
+	@Test
+	void testJson(){
+		JsonResult jsonResult = accessDataUtils.getDataOffline("body",
+													"64e309dff53c3715653685cb");
+		for (SiteNode siteNode : jsonResult.getSiteNodes()) {
+			for (LabelCollectionDTO labelCollection : siteNode.getLabelCollections()) {
+				System.out.println(labelCollection.getChildren());
+			}
+		}
+	}
 
 	@Autowired
 	private TransferService transferService;
@@ -40,11 +54,8 @@ class Neo4jApplicationTests {
 
 	@Autowired
 	private ToCsvService toCsvService;
-	
-	@Autowired
-	private AccessDataUtils accessDataUtils;
 
-	
+
 	
 	@Test
 	void testUrl(){

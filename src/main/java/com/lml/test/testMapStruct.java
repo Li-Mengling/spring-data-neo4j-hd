@@ -1,5 +1,6 @@
 package com.lml.test;
 
+import com.lml.converter.NodeConverter;
 import com.lml.domain.BodyEntity;
 import com.lml.dto.SiteNode;
 import com.lml.dto.VirtualTree;
@@ -23,7 +24,7 @@ public class testMapStruct {
         VirtualTree virtualTree = new VirtualTree();
         virtualTree.setNodeId("123");
         siteNode.setVirtualTreeList(List.of(virtualTree));
-        BodyEntity bodyEntity = BodyConverter.INSTANCE.siteNodeToBodyTest(siteNode);
+        BodyEntity bodyEntity = NodeConverter.INSTANCE.bodyEntityMapper(siteNode);
         System.out.println(bodyEntity);
     }
 }

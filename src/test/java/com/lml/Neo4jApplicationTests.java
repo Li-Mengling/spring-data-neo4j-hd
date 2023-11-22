@@ -2,11 +2,9 @@ package com.lml;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import com.lml.config.DataUrlProperties;
 import com.lml.dto.JsonResult;
 import com.lml.dto.LabelCollectionDTO;
 import com.lml.dto.SiteNode;
-import com.lml.pojo.SiteId;
 import com.lml.service.ToCsvService;
 import com.lml.service.TransferService;
 import com.lml.utils.AccessDataUtils;

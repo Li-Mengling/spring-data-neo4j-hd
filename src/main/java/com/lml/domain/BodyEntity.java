@@ -16,7 +16,10 @@ import java.util.Objects;
 import java.util.Set;
 
 
-//BODY类用于表示
+/**
+ * BODY类用于表示
+ * @author Leemonlin
+ */
 @Data
 @Node("body")
 public class BodyEntity {
@@ -58,8 +61,12 @@ public class BodyEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         BodyEntity that = (BodyEntity) o;
         return Objects.equals(nodeId, that.nodeId);
     }

@@ -30,6 +30,8 @@ public class AccessDataUtils {
         this.dataUrlProperties = dataUrlProperties;
     }
 
+    private static final String ROOT_PATH = "src/main/resources/static/";
+
     private final DataUrlProperties dataUrlProperties;
 
     private static final Map<String, String> typeMap = new HashMap<>();
@@ -64,7 +66,7 @@ public class AccessDataUtils {
     public JsonResult getDataOffline(String type, String siteID) {
         //数据获取接口地址
         JsonResult result;
-        String fileString = "src/main/resources/static/"+siteID+"/"+type+".json";
+        String fileString = ROOT_PATH + siteID + "/" + type + ".json";
         try(FileReader fileReader = new FileReader(fileString)){
             JSONReader jsonReader = new JSONReader(fileReader);
             JSONObject data = jsonReader.readObject(JSONObject.class);

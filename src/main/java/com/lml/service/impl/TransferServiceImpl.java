@@ -3,14 +3,12 @@ package com.lml.service.impl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import com.lml.domain.BodyEntity;
-import com.lml.domain.InstanceEntity;
 import com.lml.domain.LabelCollectionEntity;
 import com.lml.domain.VirtualTreeEntity;
 import com.lml.dto.BodyToInsRelationDTO;
 import com.lml.dto.JsonResult;
 import com.lml.dto.NodeAndRelationList;
-import com.lml.pojo.SiteId;
+import com.lml.dto.SiteIdDTO;
 import com.lml.service.TransferService;
 import com.lml.utils.AccessDataUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -35,11 +33,11 @@ public class TransferServiceImpl implements TransferService {
      * 将对应数据转换成PO对象
      *
      * @param type
-     * @param siteId
+     * @param siteIdDTO
      * @return
      */
-    public NodeAndRelationList getData(String type, SiteId siteId) {
-        String id = siteId.getSiteId();
+    public NodeAndRelationList getData(String type, SiteIdDTO siteIdDTO) {
+        String id = siteIdDTO.getSiteId();
         JsonResult jsonData = accessDataUtils.getDataOffline(type, id);
         return null;
     }

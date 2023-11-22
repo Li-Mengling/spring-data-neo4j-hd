@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * instance实体类
+ * @author Leemonlin
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -63,8 +67,12 @@ public class InstanceEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         InstanceEntity that = (InstanceEntity) o;
         return Objects.equals(nodeId, that.nodeId);
     }
@@ -78,8 +86,8 @@ public class InstanceEntity {
         return this.nodeId.equals(nodeId) ? this: null;
     }
 
-    public void addBelongTo(InstanceEntity InstanceEntity) {
-        belongTo.add(InstanceEntity);
+    public void addBelongTo(InstanceEntity instanceEntity) {
+        belongTo.add(instanceEntity);
     }
 
 }

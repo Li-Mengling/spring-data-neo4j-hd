@@ -4,36 +4,38 @@ import com.lml.converter.NodeConverter;
 import com.lml.domain.*;
 import com.lml.dto.*;
 import com.lml.pojo.LoadResult;
-import com.lml.pojo.SiteId;
+import com.lml.dto.SiteIdDTO;
 import com.lml.repository.BodyRepository;
 import com.lml.repository.InstanceRepository;
 import com.lml.service.LoadService;
-import com.lml.service.ToCsvService;
 import com.lml.utils.AccessDataUtils;
+import com.lml.constant.NodeConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
+/**
+ * @author Leemonlin
+ */
 @Service
 @Slf4j
 public class LoadServiceImpl implements LoadService {
 
-    private static final Map<String, String> typeMap = new HashMap<>();
+    private static final Map<String, String> TYPE_MAP = new HashMap<>();
 
     static {
-        typeMap.put("body","getBodyNodeAndRelation");
-        typeMap.put("instance","getInstanceNodeAndRelation");
+        TYPE_MAP.put(NodeConstant.BODY,"getBodyNodeAndRelation");
+        TYPE_MAP.put(NodeConstant.INSTANCE,"getInstanceNodeAndRelation");
     }
 
-    //json转换成java对象工具类
+    /**
+     * json转换成java对象工具类
+     */
     private final AccessDataUtils accessDataUtils;
 
     private  JsonResult jsonResult;
@@ -48,10 +50,8 @@ public class LoadServiceImpl implements LoadService {
 
     private final InstanceRepository instanceRepository;
 
-    private final ToCsvService toCsvService;
 
-    public LoadServiceImpl(ToCsvService toCsvService, BodyRepository bodyRepository, InstanceRepository instanceRepository, AccessDataUtils accessDataUtils, Neo4jTemplate neo4jTemplate) {
-        this.toCsvService = toCsvService;
+    public LoadServiceImpl(BodyRepository bodyRepository, InstanceRepository instanceRepository, AccessDataUtils accessDataUtils, Neo4jTemplate neo4jTemplate) {
         this.bodyRepository = bodyRepository;
         this.instanceRepository = instanceRepository;
         this.accessDataUtils = accessDataUtils;
@@ -60,9 +60,9 @@ public class LoadServiceImpl implements LoadService {
 
 
     @Override
-    @Transactional //开启事务，保证导入要么全部执行，要么全部不执行
-    public LoadResult load(String type, @NotNull SiteId siteId) {
-        jsonResult = accessDataUtils.getDataOffline(type, siteId.getSiteId());
+    @Transactional(rollbackFor = Exception.class)
+    public LoadResult load(String type, @NotNull SiteIdDTO siteIdDTO) {
+        jsonResult = accessDataUtils.getDataOffline(type, siteIdDTO.getSiteId());
         //站点节点
         List<SiteNode> siteNodes =  jsonResult.getSiteNodes();
 
@@ -72,32 +72,38 @@ public class LoadServiceImpl implements LoadService {
         List<SiteRelation> siteRelations = jsonResult.getSiteRelations();
 
         //导入body和instance节点
-        if(type.equals("body")) {
+        if(type.equals(NodeConstant.BODY)) {
             List<BodyEntity> bodyEntityList = NodeConverter.INSTANCE.bodyEntityListMapper(siteNodes);
             cacheList = bodyEntityList;
             //加载实体间关系
             setRelation(bodyEntityList,siteRelations, BodyEntity.class);
             List<BodyEntity> bodyList = bodyRepository.saveAll(bodyEntityList);
-        }else{
+            log.info("导入实体节点:{}",bodyList.size());
+        }else if(type.equals(NodeConstant.INSTANCE)){
             List<InstanceEntity> instanceEntityList = NodeConverter.INSTANCE.instanceEntityListMapper(siteNodes);
             //加载本体间关系
             setRelation(instanceEntityList,siteRelations, InstanceEntity.class);
             //加载实体-本体间关系,使用临时变量来
             setInsToBodyRelation(instanceEntityList,cacheList);
-            List<InstanceEntity> instance = instanceRepository.saveAll(instanceEntityList);
+            List<InstanceEntity> instanceList = instanceRepository.saveAll(instanceEntityList);
+            log.info("导入实体节点:{}",instanceList.size());
         }
 
 
         for (SiteNode node : siteNodes) {
             //todo 2.导入和标签、标签组节点
             List<LabelCollectionDTO> labelCollectionDTOList = node.getLabelCollections();
-            if (labelCollectionDTOList == null) break;
+            if (labelCollectionDTOList == null) {
+                break;
+            }
+
             for (LabelCollectionDTO labelCollectionDTO : labelCollectionDTOList) {
                 List<LabelDTO> children = labelCollectionDTO.getChildren();
                 List<LabelEntity> labelEntityList = NodeConverter.INSTANCE.labelEntityListMapper(children);
                 //创建所有的标签
                 neo4jTemplate.saveAll(labelEntityList);
             }
+
             List<LabelCollectionEntity> labelCollectionEntityList = NodeConverter.INSTANCE.labelCollectionEntityListMapper(labelCollectionDTOList);
             //创建所有的标签组节点
             neo4jTemplate.saveAll(labelCollectionEntityList);
@@ -127,8 +133,16 @@ public class LoadServiceImpl implements LoadService {
 
     }
 
+    /**
+     * 设置节点关系
+     * @param siteRelations
+     * @param entityType
+     * @param <T>
+     */
     private <T> void setRelation(List<T> nodeList, List<SiteRelation> siteRelations, Class entityType) {
         ArrayList<String> nodeIdList = new ArrayList<>();
+
+        //获取节点id集合
         try {
             Method getNodeId = entityType.getDeclaredMethod("getNodeId");
             for (T t : nodeList) {
@@ -138,6 +152,7 @@ public class LoadServiceImpl implements LoadService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
         for (SiteRelation siteRelation : siteRelations) {
             int startIndex = -1;
             int endIndex = -1;

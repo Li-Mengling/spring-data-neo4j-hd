@@ -1,10 +1,10 @@
 package com.lml.service;
 
 import com.lml.dto.NodeAndRelationList;
-import com.lml.pojo.SiteId;
+import com.lml.dto.SiteIdDTO;
 
 public interface TransferService {
 
-    NodeAndRelationList getData(String type, SiteId siteId);
+    NodeAndRelationList getData(String type, SiteIdDTO siteIdDTO);
 
 }

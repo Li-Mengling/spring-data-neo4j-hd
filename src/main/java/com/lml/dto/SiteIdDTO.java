@@ -1,4 +1,4 @@
-package com.lml.pojo;
+package com.lml.dto;
 
 import lombok.Data;
 
@@ -11,6 +11,6 @@ import lombok.Data;
  */
 
 @Data
-public class SiteId {
+public class SiteIdDTO {
     private String siteId;
 }

@@ -1,7 +1,7 @@
 package com.lml.service;
 
 import com.lml.pojo.LoadResult;
-import com.lml.pojo.SiteId;
+import com.lml.dto.SiteIdDTO;
 
 public interface LoadService {
      /**
@@ -15,6 +15,6 @@ public interface LoadService {
      * @author: Leemonlin
      * @date: 2023/10/28 13:28
      */
-      LoadResult load(String type, SiteId siteId);
+      LoadResult load(String type, SiteIdDTO siteIdDTO);
 
 }
